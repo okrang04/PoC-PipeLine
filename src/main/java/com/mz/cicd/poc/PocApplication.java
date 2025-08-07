@@ -8,6 +8,7 @@ public class PocApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PocApplication.class, args);
+		//Servicenow 연동 테스트
 	}
 
 }

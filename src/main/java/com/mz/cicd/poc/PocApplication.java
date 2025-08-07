@@ -9,7 +9,7 @@ public class PocApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PocApplication.class, args);
 		//Servicenow webhook test
-		System.out.println("KTDSPOC-1 테스트4");
+		System.out.println("KTDSPOC-1 테스트5");
 	}
 
 }

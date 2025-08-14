@@ -14,7 +14,7 @@ jobs:
 
       # ServiceNow Action을 사용하여 변경 요청 생성
       - name: Create ServiceNow Change Request
-        uses: ServiceNow/devops-change-request-action@v1.0.0
+        uses: rapdev-io/sn-devops-change@v2.0.1
         with:
           # 필수 입력: ServiceNow 인스턴스 정보와 인증
           sn_instance_url: 'hhttps://megazonecloudcorpdemo10.service-now.com'

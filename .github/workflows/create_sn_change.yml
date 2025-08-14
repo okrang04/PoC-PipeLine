@@ -1,30 +1,26 @@
-name: Create ServiceNow Change on Push
-
-on:
-  push:
-    branches:
-      - main  # main 브랜치에 push 이벤트가 발생했을 때 실행
-
-jobs:
-  create_change:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # ServiceNow Action을 사용하여 변경 요청 생성
-      - name: Create ServiceNow Change Request
+- name: Create ServiceNow Change Request
+        # ServiceNow/devops-change-request-action 액션 사용
+        # 최신 버전 태그를 사용하거나 정확한 버전을 지정합니다.
         uses: rapdev-io/sn-devops-change@v2.0.1
         with:
-          # 필수 입력: ServiceNow 인스턴스 정보와 인증
-          sn_instance_url: 'hhttps://megazonecloudcorpdemo10.service-now.com'
-          sn_devops_integration_user: ${{ secrets.SN_DEVOPS_USER }}
-          sn_devops_integration_password: ${{ secrets.env.SN_DEVOPS_PASSWORD }}
-
-          # 선택적 입력: 생성할 변경 요청의 상세 정보
-          short_description: 'Automated change for release from GitHub Actions'
-          priority: '2' # 예시: 우선순위 High
-          assignment_group: 'Software Development' # 예시: 할당 그룹
-          start_date: '2025-08-22 09:00:00' # 변경 시작일
-          end_date: '2025-08-25 18:00:00'   # 변경 종료일
-          # 기타 변경 레코드 필드를 추가할 수 있습니다.
+          # ServiceNow 인스턴스 이름 (예: yourinstance.service-now.com)
+          instance-name: 'megazonecloudcorpdemo10'
+          # DevOps 연동 사용자 ID
+          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+          # DevOps 연동 사용자 비밀번호
+          devops-integration-user-pass: ${{ secrets.SN_DEVOPS_PASSWORD }}
+          # Callback을 위한 GitHub 컨텍스트 (자동으로 전달됨)
+          context-github: ${{ toJson(github) }}
+          # Callback에 사용될 저장소 이름
+          callback-repo: ${{ github.repository }}
+          # Callback에 사용될 파이프라인 ID (github.run_id)
+          callback-pipeline-id: ${{ github.run_id }}
+          # 변경 요청에 대한 상세 파라미터 (JSON 형식)
+          callback-params: |
+            {
+              "short_description": "Automated change from GitHub Action for ${{ github.ref_name }}",
+              "priority": "3",
+              "assignment_group": "My Development Team",
+              "justification": "This is a change request created automatically by a GitHub Actions workflow.",
+              "implementation_plan": "The changes will be deployed to the target environment."
+            }

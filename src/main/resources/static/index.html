@@ -3,133 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CICD POC</title>
+    <title>KTDS DevOps 환경 POC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* 기본 폰트 및 여백 설정 */
+        /* 기본 스타일 초기화 및 설정 */
         body {
-            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
-            margin: 20px;
+            font-family: 'Noto Sans KR', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f4f4f9; /* 부드러운 배경색 */
             color: #333;
         }
+
+        /* 전체 콘텐츠를 감싸는 컨테이너 */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px; /* 부드러운 모서리 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 은은한 그림자 */
+        }
+
+        /* 헤더 텍스트 섹션 */
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* 메인 제목 스타일 */
+        h1 {
+            color: #0047AB; /* KTDS CI와 유사한 짙은 파란색 */
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+
+        /* 부제목 스타일 */
+        .subtitle {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 0;
+        }
+
         /* 테이블 전체 스타일 */
         .feature-table {
             width: 100%;
-            border-collapse: collapse; /* 테두리 한 줄로 합치기 */
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 은은한 그림자 효과 */
-            font-size: 14px;
+            border-collapse: collapse;
+            font-size: 15px;
+            border-radius: 8px; /* 테이블 모서리 둥글게 */
+            overflow: hidden; /* 모서리 둥글게 적용을 위해 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
+
         /* 테이블 헤더 스타일 */
         .feature-table th {
-            background-color: #007bff; /* 전문적인 파란색 계열 */
+            background-color: #0047AB; /* 제목과 통일된 메인 색상 */
             color: white;
-            padding: 12px 15px;
+            padding: 16px 20px;
             text-align: center;
-            font-weight: bold;
-            border: 1px solid #0069d9;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+
         /* 테이블 셀(td) 스타일 */
         .feature-table td {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e8e8e8; /* 행 구분선 */
             text-align: left;
-            vertical-align: top; /* 내용이 길어질 경우 위쪽으로 정렬 */
+            vertical-align: top;
         }
+        
+        /* 마지막 행의 하단 테두리 제거 */
+        .feature-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
         /* 짝수 행에 배경색을 주어 가독성 향상 */
         .feature-table tbody tr:nth-of-type(even) {
-            background-color: #f8f9fa;
+            background-color: #f9fafb;
         }
-        /* 마우스를 올렸을 때 행 강조 */
+
+        /* 마우스를 올렸을 때 행 강조 및 부드러운 전환 효과 */
         .feature-table tbody tr:hover {
-            background-color: #e9ecef;
+            background-color: #e8f0fe;
+            transition: background-color 0.3s ease;
         }
+
         /* 특정 셀 텍스트 정렬 */
         .feature-table .center-align {
             text-align: center;
+            vertical-align: middle;
         }
+
         /* 시나리오/비고의 긴 텍스트 처리를 위한 스타일 */
         .feature-table .scenario-notes {
-            white-space: pre-line; /* 줄바꿈 문자(\n)를 인식하여 줄바꿈 */
-            word-break: keep-all; /* 단어 단위로 줄바꿈 */
+            white-space: pre-line;
+            word-break: keep-all;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
-    <p style="font-size:300%; color: skyblue">Welcome to<br>
-    CI/CD POC!!</p>
-    <p style="font-size:300%; color: skyblue">SCTASK0010158: KTDSPOC-55</p>
+    <div class="container">
+        <div class="header-section">
+            <h1>KTDS DevOps 환경 POC</h1>
+            <p class="subtitle">SCTASK0010158: KTDSPOC-55</p>
+        </div>
 
-    <!-- 기능 요구사항 테이블 시작 -->
-    <table class="feature-table">
-        <thead>
-            <tr>
-                <th style="width: 5%;">번호</th>
-                <th style="width: 15%;">대분류</th>
-                <th style="width: 20%;">중분류</th>
-                <th>시나리오</th>
-                <th style="width: 20%;">비고</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="center-align">1-1</td>
-                <td rowspan="5">멀티테넌시</td>
-                <td rowspan="2">멀티테넌트 설정 : 2개 회사(예:A사, B사) 기준</td>
-                <td class="scenario-notes">각 회사별 요청자 포털/처리자 포털 구성</td>
-                <td rowspan="5"></td>
-            </tr>
-            <tr>
-                <td class="center-align">1-2</td>
-                <td class="scenario-notes">각 회사별 프로세스/입력 항목을 다르게 구성</td>
-            </tr>
-            <tr>
-                <td class="center-align">1-3</td>
-                <td rowspan="2">멀티테넌트 조회</td>
-                <td class="scenario-notes">각 회사 권한 있는 사람은 접속하여 조회 가능</td>
-            </tr>
-            <tr>
-                <td class="center-align">1-4</td>
-                <td class="scenario-notes">2개 회사 접근권한 모두 있는 사람은 한화면에서 각 회사 선택 후 조회 가능</td>
-            </tr>
-            <tr>
-                <td class="center-align">1-5</td>
-                <td>멀티테넌트 관리</td>
-                <td class="scenario-notes">멀티테넌트 설정에 대해 각 회사별 workflow 와 DB(Table) 관리 방법 조회 가능</td>
-            </tr>
-            <tr>
-                <td class="center-align">2-1</td>
-                <td rowspan="2">유연한 프로세스</td>
-                <td rowspan="2">서비스별/도메인별 별도 프로세스 설정</td>
-                <td class="scenario-notes">동일 테넌트(예:A사)에서 서비스별(예:다서비스, 라서비스)로 대상 프로세스(3개) 별도 구성</td>
-                <td rowspan="2" class="scenario-notes">* 도메인 의미 : 다서비스, 라서비스의 상위 그룹개념
+        <!-- 기능 요구사항 테이블 시작 -->
+        <table class="feature-table">
+            <thead>
+                <tr>
+                    <th style="width: 5%;">번호</th>
+                    <th style="width: 15%;">대분류</th>
+                    <th style="width: 20%;">중분류</th>
+                    <th>시나리오</th>
+                    <th style="width: 20%;">비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center-align">1-1</td>
+                    <td rowspan="5" class="center-align" style="font-weight: 500;">멀티테넌시</td>
+                    <td rowspan="2">멀티테넌트 설정 : 2개 회사(예:A사, B사) 기준</td>
+                    <td class="scenario-notes">각 회사별 요청자 포털/처리자 포털 구성</td>
+                    <td rowspan="5"></td>
+                </tr>
+                <tr>
+                    <td class="center-align">1-2</td>
+                    <td class="scenario-notes">각 회사별 프로세스/입력 항목을 다르게 구성</td>
+                </tr>
+                <tr>
+                    <td class="center-align">1-3</td>
+                    <td rowspan="2">멀티테넌트 조회</td>
+                    <td class="scenario-notes">각 회사 권한 있는 사람은 접속하여 조회 가능</td>
+                </tr>
+                <tr>
+                    <td class="center-align">1-4</td>
+                    <td class="scenario-notes">2개 회사 접근권한 모두 있는 사람은 한화면에서 각 회사 선택 후 조회 가능</td>
+                </tr>
+                <tr>
+                    <td class="center-align">1-5</td>
+                    <td>멀티테넌트 관리</td>
+                    <td class="scenario-notes">멀티테넌트 설정에 대해 각 회사별 workflow 와 DB(Table) 관리 방법 조회 가능</td>
+                </tr>
+                <tr>
+                    <td class="center-align">2-1</td>
+                    <td rowspan="2" class="center-align" style="font-weight: 500;">유연한 프로세스</td>
+                    <td rowspan="2">서비스별/도메인별 별도 프로세스 설정</td>
+                    <td class="scenario-notes">동일 테넌트(예:A사)에서 서비스별(예:다서비스, 라서비스)로 대상 프로세스(3개) 별도 구성</td>
+                    <td rowspan="2" class="scenario-notes">* 도메인 의미 : 다서비스, 라서비스의 상위 그룹개념
 -> 서비스별(or 도메인별) 요청서(카탈로그)는 동일하며, 뒤에 처리 프로세스가 복잡/단순으로 다른것입니다.
 서비스별(or 도메인별) 요청서부터 별도 구성되는게 아닌점 참고해주세요</td>
-            </tr>
-            <tr>
-                <td class="center-align">2-2</td>
-                <td class="scenario-notes">동일 테넌트(예:A사)에서 도메인별(예:가도메인, 나도메인)로 대상 프로세스(3개) 별도 구성</td>
-            </tr>
-            <tr>
-                <td class="center-align">3-1</td>
-                <td>자동화 도구 연계</td>
-                <td>개발도구 연계</td>
-                <td class="scenario-notes">SR 티켓으로 AP변경관리 프로세스와 개발도구 연계하여 배포까지 구현 (E2E 조회 가능하도록함)
+                </tr>
+                <tr>
+                    <td class="center-align">2-2</td>
+                    <td class="scenario-notes">동일 테넌트(예:A사)에서 도메인별(예:가도메인, 나도메인)로 대상 프로세스(3개) 별도 구성</td>
+                </tr>
+                <tr>
+                    <td class="center-align">3-1</td>
+                    <td class="center-align" style="font-weight: 500;">자동화 도구 연계</td>
+                    <td>개발도구 연계</td>
+                    <td class="scenario-notes">SR 티켓으로 AP변경관리 프로세스와 개발도구 연계하여 배포까지 구현 (E2E 조회 가능하도록함)
 - (1) ITSM-Jira-Jenkins-Git 등 형상관리 도구 연계 후 배포
 - (2) ITSM-Jenkins-Git 등 형상관리 도구 연계 후 배포
 - (3) ITSM- Argo CD 연계 후 배포</td>
-                <td class="scenario-notes">3. 프로세스별 단계
+                    <td class="scenario-notes">3. 프로세스별 단계
 ㅇ 릴리즈 프로세스
 - 등록 -> 계획 수립 및 테스트 -> 승인 -> 적용 및 검증 -> 종료
 * 승인전에 AP변경 티켓 매핑
 ㅇ AP 변경 프로세스
 - 개발도구연계하여 일반적인 AP변경 프로세스로 구성</td>
-            </tr>
-            <tr>
-                <td class="center-align">4-1</td>
-                <td>커스터마이징 용이성</td>
-                <td>커스터마이징 용이성</td>
-                <td class="scenario-notes">장애상황전파 기능 개발 결과물 제시
+                </tr>
+                <tr>
+                    <td class="center-align">4-1</td>
+                    <td class="center-align" style="font-weight: 500;">커스터마이징 용이성</td>
+                    <td>커스터마이징 용이성</td>
+                    <td class="scenario-notes">장애상황전파 기능 개발 결과물 제시
 -> 일정상 개발 어려워 대체 방안 제시, 타사가 개발해서 사용하는 화면으로 대체
 1. 상황전파 등록 화면 시나리오
 ㅇ 도메인/서비스 기준
@@ -152,25 +207,25 @@
 * 라서비스_1등급_공지그룹, 나도메인_1등급_공지그룹
 3) 추가 공지그룹 선택
 - 추가 공지그룹 수동 추가 가능</td>
-                <td class="scenario-notes">관련 화면 첨부파일로 제공</td>
-            </tr>
-            <tr>
-                <td class="center-align">5-1</td>
-                <td rowspan="2">솔루션 기능 시연</td>
-                <td rowspan="2">솔루션 자체 기능으로 진행</td>
-                <td class="scenario-notes">통계/대시보드 Self 추출 기능 시연
+                    <td class="scenario-notes">관련 화면 첨부파일로 제공</td>
+                </tr>
+                <tr>
+                    <td class="center-align">5-1</td>
+                    <td rowspan="2" class="center-align" style="font-weight: 500;">솔루션 기능 시연</td>
+                    <td rowspan="2">솔루션 자체 기능으로 진행</td>
+                    <td class="scenario-notes">통계/대시보드 Self 추출 기능 시연
 - 위 자동화 도구 연계 시나리오(3-1)에서 구현한 서비스요청, AP변경,릴리즈 프로세스 진행현황을 통계 및 대시보드를 통해 Self 추출 가능
 - 처리자 외 고객사 거버넌스 조직에서도 Self 대시보드 구성 가능한 라이센스 정책 함께 제시</td>
-                <td class="scenario-notes">-> 사용자 라이선스 정책도 함께 제시</td>
-            </tr>
-            <tr>
-                <td class="center-align">5-2</td>
-                <td class="scenario-notes">서비스요청/승인/처리까지의 모바일 적용 기능 시연</td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- 기능 요구사항 테이블 끝 -->
-    
+                    <td class="scenario-notes">-> 사용자 라이선스 정책도 함께 제시</td>
+                </tr>
+                <tr>
+                    <td class="center-align">5-2</td>
+                    <td class="scenario-notes">서비스요청/승인/처리까지의 모바일 적용 기능 시연</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 기능 요구사항 테이블 끝 -->
+    </div>
 </body>
 </html>

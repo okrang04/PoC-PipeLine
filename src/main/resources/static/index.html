@@ -36,7 +36,7 @@
 
         /* 메인 제목 스타일 */
         h1 {
-            color: #0047AB; /* KTDS CI와 유사한 짙은 파란색 */
+            color: #000000; /* KTDS CI와 유사한 짙은 파란색 */
             font-size: 2.5em;
             margin-bottom: 0.5em;
             font-weight: 700;
@@ -44,7 +44,7 @@
 
         /* 부제목 스타일 */
         .subtitle {
-            font-size: 1.2em;
+            font-size: 2.5em;
             color: #555;
             margin-top: 0;
         }
@@ -114,16 +114,45 @@
             word-break: keep-all;
             line-height: 1.6;
         }
+        
+        /* 유튜브 동영상 섹션 스타일 */
+        .video-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .video-container h2 {
+            font-size: 2em;
+            color: #0047AB;
+            margin-bottom: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header-section">
             <h1>KTDS DevOps 환경 POC</h1>
-            <p class="subtitle">SCTASK0010162: KTDSPOC-59</p>
+            <p class="subtitle">SCTASK0010201: KTDSPOC-99</p>
         </div>
 
-        <!-- 기능 요구사항 테이블 시작 -->
         <table class="feature-table">
             <thead>
                 <tr>
@@ -233,7 +262,11 @@
                 </tr>
             </tbody>
         </table>
-        <!-- 기능 요구사항 테이블 끝 -->
-    </div>
+        <div class="video-container">
+            <h2>데브옵스 관련 동영상</h2>
+            <div class="video-wrapper">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mzffuYRe3uM?si=gy7oABkIGN4RjFKm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        </div>
 </body>
-</html>

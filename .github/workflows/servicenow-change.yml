@@ -2,7 +2,10 @@ name: Test
 
 
 on:
-  workflow_dispatch:
+  #workflow_dispatch:
+    push:
+      branches:
+        - main # main 브랜치에 푸시가 발생했을 때 실행
     
 
 jobs:

@@ -47,6 +47,7 @@ jobs:
     name: Deploy
     needs: changeApproval
     runs-on: ubuntu-latest
+    environment: deployment_gate
 
     steps:     
       - name: Run Deployment Script

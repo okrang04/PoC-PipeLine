@@ -39,7 +39,7 @@ jobs:
           changeCreationTimeOut: '3600'
           abortOnChangeCreationFailure: true
           abortOnChangeStepTimeout: true
-          deployment-gate: '{"environment":"deployment_gate","jobName":"Deploy"}'
+          ### deployment-gate: '{"environment":"deployment_gate","jobName":"Deploy"}'
       - name: Output of Change Creation
         run: echo "change-request-number = ${{ steps.create.outputs.change-request-number }} and change-request-sys-id = ${{ steps.create.outputs.change-request-sys-id }} " >> $GITHUB_OUTPUT
     
@@ -47,7 +47,7 @@ jobs:
     name: Deploy
     needs: changeApproval
     runs-on: ubuntu-latest
-    environment: deployment_gate
+    ### environment: deployment_gate
 
     steps:     
       - name: Run Deployment Script

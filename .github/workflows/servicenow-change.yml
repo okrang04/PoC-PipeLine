@@ -41,6 +41,14 @@ jobs:
           deployment-gate: '{"environment":"deployment_gate","jobName":"Deploy"}'
       - name: Output of Change Creation
         run: echo "change-request-number = ${{ steps.create.outputs.change-request-number }}" >> $GITHUB_OUTPUT
+
+      - name: Print change outputs
+        run: |
+          echo "status=${{ steps.change.outputs.status }}"
+          echo "change_number=${{ steps.change.outputs.change-number }}"
+          echo "change_sys_id=${{ steps.change.outputs.change-sys-id }}"
+          echo "message=${{ steps.change.outputs.message }}"
+
       #     devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
       #     devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
       #     instance-url: ${{ secrets.SN_INSTANCE_URL }}
